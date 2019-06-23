@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+<form method="POST" action="">
+<fieldset class="form-group">
+	<legend class="border-bottom mb-4">CheckAvailability</legend>
+	<div class="form-group">
+			{{form.fromstation.label}}
+			<select name='fromstation'>
+            {% for x in fromstation %}
+            <option value="{{x}}" selected='selected'>{{x}}</option>
+            {% endfor %}
+            </select>
+			
+			<img src="{{url_for('static', filename='tofro.png')}}" />
+			{{form.tostation.label}}
+			<select name='tostation'>
+            {% for x in tostation %}
+            <option value="{{x}}" selected='selected'>{{x}}</option>
+            {% endfor %}
+            </select>
+
+	</div>
+<div class="form-group">
+			{{form.date.label}}
+			{{form.date}}
+			</div>
+			
+</fieldset>
+<div class="form-group">
+{{form.submit(class="btn btn-outline-info")}}
+</div>
+</form>
+</div>
+{% endblock content %}
+
