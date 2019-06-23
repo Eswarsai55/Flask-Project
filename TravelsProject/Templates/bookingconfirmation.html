@@ -1,0 +1,61 @@
+{%extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+
+<form method="POST" action="">
+{{form.hidden_tag()}}
+<fieldset class="form-group">
+	<legend class="border-bottom mb-4">Confirm Booking</legend>
+	<div class="form-group">
+			{{form.regno.label}}
+			<input style="border:none" type="text" name="regno" value="{{bus.regno}}" readonly/>
+			</div>
+	
+	<div class="form-group">
+	
+	
+			{{form.startpoint.label}}
+			<input style="border:none" type="text" name="startpoint" value="{{bus.startpoint}}" readonly/>
+
+			{{form.endpoint.label}}
+			<input style="border:none" type="text" name="endpoint" value="{{bus.endpoint}}" readonly/>
+	</div>
+<div class="form-group">
+			{{form.starttime.label}}
+			<input style="border:none" type="text" name="starttime" value="{{bus.starttime}}" readonly/>
+
+	
+			{{form.droptime.label}}
+			<input style="border:none" type="text" name="droptime" value="{{bus.droptime}}" readonly/>
+
+	</div>
+			<div class="form-group">
+			{{form.seatsleft.label}}
+			<input style="border:none" type="text" name="seatsleft" value="{{bus.seatsavailable}}" readonly/>
+
+			{{form.model.label}}
+			<input style="border:none" type="text" name="model" value="{{bus.modeltype}}" readonly/>
+
+	</div>
+<div class="form-group">
+			{{form.noofpassengers.label}}
+			{{form.noofpassengers}}
+			
+			{% if form.is_submitted():%}
+			
+			{{form.fare.label}}
+			<input style="border:none" type="text" name="model" value="{{fare}}" readonly/>
+			
+			{%endif%}
+			
+			
+			
+	
+</fieldset>
+<div class="form-group">
+{{form.submit(class="btn btn-outline-info")}}
+</div>
+</form>
+
+</div>
+{%endblock content%}

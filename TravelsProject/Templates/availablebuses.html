@@ -1,0 +1,53 @@
+{%extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+{%for bus in buses%}
+<form method="POST" action="">
+{{form.hidden_tag()}}
+<fieldset class="form-group">
+	<legend class="border-bottom mb-4">Availablebuses</legend>
+	<div class="form-group">
+			{{form.regno.label}}
+			<input style="border:none" type="text" name="regno" value="{{bus.regno}}" readonly/>
+			
+	
+	
+			{{form.startpoint.label}}
+			<input style="border:none" type="text" name="startpoint" value="{{bus.startpoint}}" readonly/>
+</div>
+	
+	<div class="form-group">
+			{{form.endpoint.label}}
+			<input style="border:none" type="text" name="endpoint" value="{{bus.endpoint}}" readonly/>
+	
+			{{form.starttime.label}}
+			<input style="border:none" type="text" name="starttime" value="{{bus.starttime}}" readonly/>
+
+	</div>
+<div class="form-group">
+			{{form.droptime.label}}
+			<input style="border:none" type="text" name="droptime" value="{{bus.droptime}}" readonly/>
+
+	
+			{{form.fare.label}}
+			<input style="border:none" type="text" name="fare" value="{{bus.fare}}" readonly/>
+
+	</div>	
+	<div class="form-group">
+			{{form.seatsleft.label}}
+			<input style="border:none" type="text" name="seatsleft" value="{{bus.seatsavailable}}" readonly/>
+
+			{{form.model.label}}
+			<input style="border:none" type="text" name="model" value="{{bus.modeltype}}" readonly/>
+
+	</div>
+
+	
+</fieldset>
+<div class="form-group">
+{{form.submit(class="btn btn-outline-info")}}
+</div>
+</form>
+{%endfor%}
+</div>
+{%endblock content%}
